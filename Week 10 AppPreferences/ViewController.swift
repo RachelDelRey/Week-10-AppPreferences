@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
     
+    @IBOutlet weak var txtPhone: UITextField!
+    
     @IBOutlet weak var datepicker: UIDatePicker!
     
     
@@ -21,6 +23,7 @@ class ViewController: UIViewController {
         let defaults: UserDefaults = UserDefaults.standard
         defaults.set(self.txtFullName.text, forKey: "fullname")
         defaults.set(self.txtEmail.text, forKey: "email")
+        defaults.set(self.txtPhone.text, forKey: "phone")
           let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy" //Your New Date format as per requirement change it own
         let newDate = dateFormatter.string(from:datepicker.date) //pass Date here
@@ -44,6 +47,9 @@ class ViewController: UIViewController {
         }
         if defaults.string(forKey: "email") != nil{
             txtEmail.text = defaults.string(forKey: "email")
+        }
+        if defaults.string(forKey: "phone") != nil{
+            txtPhone.text = defaults.string(forKey: "phone")
         }
         if defaults.string(forKey: "bdate") != nil{
             let bdate  = defaults.string(forKey: "bdate")
